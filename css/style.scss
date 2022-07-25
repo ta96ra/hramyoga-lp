@@ -1,0 +1,1010 @@
+// 定義等
+@charset"UTF-8";
+$pink:hsl(0,50,90);
+$red:hsl(0,80,70);
+$darkRed:hsl(0,90,47);
+$gray:rgb(249,249,249);
+$black:rgb(50,50,50);
+$tab:920px;
+$sp:600px;
+@mixin tab{
+  @media(max-width:($tab)){
+    @content;
+  }
+}
+@mixin sp{
+  @media(max-width:($sp)){
+    @content;
+  }
+}  
+
+// 共通
+body{
+  margin: 0;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 100%;
+}
+section{
+  padding: 0 40px;
+  @include sp{
+    padding: 0 20px;
+  }
+}
+h1{
+  margin: 0;
+  @include tab{
+    font-size: 1.5rem;
+  }
+  @include sp{
+    font-size:1.25rem;
+  }
+}
+h2{
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 40px;
+  font-size: 1.75rem;
+  @include tab{
+    font-size: 1.5rem;
+    // color:blue;
+  }
+  @include sp{
+    font-size: 1.25rem;
+    padding-bottom: 20px;
+    // color:green;
+  }
+}
+h3{
+  font-size:1.25rem;
+  text-align: center;
+  font-family:sans-serif;
+  margin: 0;
+  @include tab{
+    font-size: 1.125rem;
+  }
+  @include sp{
+    font-size: 1rem;
+  }
+}
+p{
+  margin: 0;
+}
+img{
+  width: 100%;
+  vertical-align: bottom;
+}
+.wrapper{
+  // outline: 2px solid green;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 30px;
+  @include sp{
+    padding: 10px;
+  }
+}
+.wrapper-large{
+  // outline: 2px solid blue;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 30px;
+  @include sp{
+    padding: 10px;
+  }
+}
+.wrapper-small{
+  // outline: 2px solid blue;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 30px;
+  @include sp{
+    padding: 10px;
+  }
+}
+.reserve-btn{
+  text-align: center;
+  margin: 0 auto;
+  width: 400px;
+  height: 60px;
+  background: $darkRed;
+  border-radius: 5px;
+  box-shadow: 0 4px  darken($darkRed,15%);
+  @include sp{
+    width: 80%;
+    height: 50px;
+  }
+  &:hover{
+    background: lighten($darkRed,15%);
+  }
+  a{
+    color:white;
+    text-decoration: none;
+    line-height: 60px;
+    font-size: 1.5rem;
+    display: block;
+    width: 100%;
+    @include sp{
+      line-height: 50px;
+    }
+  }
+}
+.largest{
+  font-size: 4rem;
+  font-weight: bold;
+  padding-bottom: 60px;
+  @include tab{
+    font-size: 3rem;
+  }
+  @include sp{
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+  }
+}
+.larger{
+  color:$red;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 3rem;
+  padding-bottom: 30px;
+  @include tab{
+    font-size: 2rem;
+  }
+  @include sp{
+    font-size: 1.5rem;
+  }
+}
+.medium{
+  font-size: 1.25rem;
+  @include tab{
+    font-size: 1.125rem;
+  }
+  @include sp{
+    font-size: 1rem;
+  }  
+}
+.small{
+  font-size: 1.125rem;
+  @include tab{
+    font-size: 1rem;
+  }
+  @include sp{
+    font-size: 0.875rem;
+  }  
+}
+.smaller{
+  font-size: 1rem;
+  @include tab{
+    font-size: 0.9rem;
+  }
+  @include sp{
+    font-size: 0.8rem;
+  }
+}
+.smallest{
+  font-size: 0.875rem;
+  text-align: center;
+  @include sp{
+    font-size: 0.7rem;
+  }
+}
+
+// ヘッダー
+header{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 1;
+  background: white;
+  width: 100vw;
+  height: 60px;
+  .wrapper{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header-left{
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      img{
+        width: 60px;
+      }
+      p{
+        margin-left: 10px;
+        font-weight: bold;
+        color: $black;
+      }
+    }
+    .header-right{
+      padding-right: 20px;
+      .reserve-btn{
+        width: 250px;
+        height: 40px;
+        @include sp{
+          width: 150px;
+          height: 30px;
+          box-shadow: 0 3px darken($darkRed,15%); 
+        }
+        a{
+          line-height: 40px;
+          font-size: 1.25rem;
+          @include sp{
+            font-size: 0.875rem;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+// スクロールトップボタン
+.to-top{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: $red;
+  position:fixed;
+  top:90%;
+  right:100px;
+  z-index: 3;
+  @include tab{
+    right: 60px;
+  }
+  @include sp{
+    right: 30px;
+  }
+  a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    span{
+      position: absolute;
+      top: 18px;
+      left:13px;
+      transform:rotate(45deg);
+      display: block;
+      height: 20px;
+      width: 20px;
+      border-top:4px solid white;
+      border-left: 4px solid white;
+    }
+  }
+}
+// メインビジュアル
+.mainvisual{
+  width: 100vw;
+  height: 600px;
+  margin-top: 60px;
+  position: relative;
+  @include sp{
+    height: 400px;
+  }
+  img{
+    object-fit: cover;
+    object-position: center;
+    opacity:0.9;
+    height: 100%;
+  }
+  .mainvisual-text{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    color:white;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+// セールス
+#sales{
+  background: $pink;
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  @include sp{
+    padding: 40px 20px;
+  }
+  .wrapper{
+    width: 100%;
+    height: auto;
+    border:5px solid $red;
+    .large{
+      color:$red;
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 2.5rem;
+      font-weight: bold;
+      padding-bottom: 30px;
+      @include tab{
+        font-size: 1.75rem;
+      }
+      @include sp{
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+// コロナ対策
+#covid{
+  height: auto;
+  @include sp{
+    padding: 0 20px;
+  }
+  .wrapper-small{
+    .title{
+      // outline: 2px solid red;
+      text-align: center;
+      h2{
+        background: white;
+        // outline: 2px solid blue;
+        display: inline;
+        padding-bottom: 0;
+      }
+    }
+    .covid-contents{
+      border:2px solid $black;
+      border-radius:10px;
+      margin-top: -40px;
+      @include sp{
+        margin-top: -32px;
+      }
+      .medium{
+        padding: 50px 10px 10px;
+      }
+      .covid-items{  
+        display: flex;
+        flex-wrap: wrap; 
+        @include sp{
+          justify-content: space-between;
+        }
+        .covid-item{
+          // outline: 2px solid skyblue;
+          width: 30%;
+          padding-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          @include sp{
+            width: 40%; 
+            padding-bottom: 10px;       
+          }
+          img{
+            width: 135px;
+            height: 135px;
+            // outline: 2px solid purple;
+            @include sp{
+              width: 60px;
+              height: 60px;
+            }
+          }
+          .medium{
+            padding-top: 0;
+            text-align: center;
+          }
+        }
+        .covid-item:nth-of-type(2){
+          margin: 0 5%;
+          @include sp{
+            margin: 0;
+          }
+        }
+        .covid-item:nth-of-type(4){
+          margin: 0 6.66% 0 13.33%;
+          @include sp{
+            margin: 0;
+          }
+        }
+        .covid-item:nth-of-type(5){
+          margin: 0 13.33% 0 6.66%;
+          @include sp{
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+// Hramyogaの特徴 
+#feature{
+  background: $pink;
+  .wrapper{
+    .feature-items{
+      padding: 20px 0 40px;
+      display: flex;
+      justify-content: space-between;
+      @include tab{
+        flex-direction: column;
+      }
+      .feature-item{
+        border: 2px solid $black;
+        border-radius: 5px;
+        background: white;
+        width: 29%;
+        padding: 10px;
+        @include tab{
+          width: calc(100% - 20px);
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+//こんな悩みはありませんか？
+#worries{
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: $gray;
+  .wrapper-large{
+    min-height: 500px;
+    .worries-contents{ 
+      display: flex; 
+      .worries-content{
+        display: flex;
+        justify-content: center;
+        @include tab{
+          flex-direction: column;
+          justify-content: center;
+          width: 70%;
+          @include sp{
+            width: 100%;
+          }
+        }
+
+        .worries-item{
+          padding: 20px 30px;
+          border-radius: 50%;
+          height: 80px;
+          background: $pink;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include tab{
+            border-radius: 10px;
+            height: auto;
+            min-height:30px;
+            padding:8px;
+            width: 100%;
+          }
+        }
+        .worries-left{
+          // outline: 2px solid green;
+          height: 100%;
+          .worries-item{
+            margin-bottom: 20px;
+            position: relative;
+            @include sp{
+              width: 90%;
+            }
+            &::after{
+              content:'';
+              position: absolute;
+              top:75%;
+              right: 0;
+              transform:translate(50%,-50%)rotate(35deg);
+              border-left:60px solid $pink;
+              border-top: 15px solid transparent;
+              border-bottom:15px solid transparent;
+              z-index:10;
+              @include tab{
+                transform:translate(70%,-50%)rotate(35deg);
+                border-left:30px solid $pink;
+                border-top: 8px solid transparent;
+                border-bottom:8px solid transparent;
+              }
+            }
+          }
+        }
+        .worries-img{
+          display: flex;
+          align-items: end;
+          padding: 0 60px;
+          // outline: 2px solid purple;
+          @include tab{
+            display: none;
+          }
+          img{
+            // outline: 2px solid brown;
+            width: 250px;
+            display: block;
+            @include tab{
+              width: 200px;
+            }
+          }
+        }
+        .worries-right{
+          // outline: 2px solid blue;
+          height: 100%;
+          display: flex;
+          .worries-items{
+            // outline: 2px solid yellow;
+            width: 100%;
+            .worries-item{
+              margin-top: 20px;
+              position: relative;
+              @include tab{
+                margin-top: 0;
+                margin-bottom: 20px;
+              }
+              @include sp{
+                width: 90%;
+              }
+              &::after{
+                content:'';
+                position: absolute;
+                top:75%;
+                left: 0;
+                transform:translate(-50%,-50%)rotate(-35deg);
+                border-right:60px solid $pink;
+                border-top: 15px solid transparent;
+                border-bottom:15px solid transparent;
+                z-index:10;
+                @include tab{
+                  top: 75%;
+                  left: 100%;
+                  transform:translate(-30%,-50%)rotate(-145deg);
+                  border-right:30px solid $pink;
+                  border-top: 8px solid transparent;
+                  border-bottom:8px solid transparent;
+                }
+              }
+            }
+          }
+          .worries-img-sp{
+            display: none;
+            // outline: 2px solid red;
+            @include sp{
+              display: flex;
+              align-items: end;
+              width: 30%;
+            }
+            img{
+              // outline: 2px solid skyblue;
+              display: block;
+            }
+          }
+        }
+      }
+      .worries-img-tab{
+        display: none;
+        // outline: 2px solid purple;
+        @include tab{
+          display: block;
+          display: flex;
+          align-items: end;
+          padding: 0 40px;
+          @include sp{
+            display: none;
+          }
+          img{
+            width: 150px;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+// あなたの悩み、改善します！
+#improve{
+  .wrapper{
+    .improve-items{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .improve-item{
+        border:2px solid $black;
+        border-radius: 5px;
+        width: 30%;
+        margin-bottom: 20px;
+        @include tab{
+          width: 47%;
+        }
+        @include sp{
+          width: 100%;
+        }
+        .item-title{
+          background: $pink;
+          padding: 10px;
+          border-bottom: 2px solid $black;
+        }
+        .small{
+          padding: 10px;
+        }
+      }
+      .improve-item:last-of-type{
+        border:none;
+      }
+    }
+  }
+}
+// Hramyogaへの想い
+#about{
+  position: relative;
+  .wrapper{
+    .small{
+      padding-bottom: 30px;
+    }
+    .about-me{
+      border:2px solid $black;
+      border-radius: 10px;
+      padding: 10px;
+      .skill{
+        display: flex;
+        justify-content: space-between;
+        img{
+          width: 100px;
+          z-index:-2;
+
+          @include tab{
+            width: 85px;
+            max-height: 170px;
+          }
+          @include sp{
+            width: 75px;
+            max-height:150px;
+          }
+        }
+      }
+    }
+  }
+  .about-bg{
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:-1;
+    opacity: 0.3;
+    height: 100%;
+  }
+}
+// お客様の声
+#customer-voice{
+  background: $pink;
+  .wrapper{
+    .customers{
+      .customer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        img{
+          border-radius: 50%;
+          background: $pink;
+          width: 120px;
+          @include sp{
+            width: 80px;
+          }
+        }
+        .voice{
+          border-radius: 10px;
+          width: calc(100% - 170px);
+          height: 100%;
+          padding: 10px;
+          background: white;
+          position: relative;
+          @include tab{
+            width: 100%;
+          }
+        }
+      }
+      .customer:nth-of-type(odd){
+        .voice::before{
+          content:'';
+          position: absolute;
+          top:50%;
+          left: 0;
+          transform:translate(-100%,-50%);
+          border-right:20px solid white;
+          border-top:14px solid transparent;
+          border-bottom:14px solid transparent;
+        }
+      }
+      .customer:nth-of-type(even){
+        flex-direction: row-reverse;
+        .voice::after{
+          content:'';
+          position: absolute;
+          top:50%;
+          right: 0;
+          transform:translate(100%,-50%);
+          border-left:20px solid white;
+          border-top:14px solid transparent;
+          border-bottom:14px solid transparent;
+        }
+      }
+    }
+  }
+}
+// レッスンコースの紹介
+#corse{
+  // background: $pink;
+  .wrapper-large{
+    .lesson-items{
+      display: flex;
+      justify-content: space-between;
+      @include tab{
+        flex-direction: column;
+        align-items: center;
+      }
+      .lesson-item{
+        // outline: 2px solid red;
+        width: 30%;
+        @include tab{
+          width:500px;
+          margin-bottom: 30px;
+        }
+        @include sp{
+          width: 100%;
+        }
+        img{
+          width: 100%;
+          margin-bottom: 20px;
+          // outline: 2px solid skyblue;
+        }
+        .small{
+          // outline: 2px solid purple;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+// ご予約の流れ
+#reserve{
+  background: $pink;
+  .wrapper{
+    .reserve-items{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      // outline: 2px solid red;
+      @include tab{
+        flex-direction: column;
+        align-items: center;
+      }
+      .reserve-item{
+        background: white;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        // outline: 2px solid skyblue;
+        @include tab{
+          width: 100%;
+          max-width: 400px;
+          height: 100px;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          border:2px solid $black;
+        }
+        @include sp{
+          height: 75px;
+        }
+      }
+      .arrow{
+        width: 30px;
+        height: 30px;
+        background: $pink;
+        align-self: center;
+        background: white;
+        position: relative;
+        transform:translateX(-50%);
+        // outline: 2px solid purple;
+        @include tab{
+          width: 20px;
+          height: 20px;
+          margin-bottom: 40px;
+        }
+        &::after{
+          content:'';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform:translate(100%,-50%);
+          border-left:30px solid white;
+          border-top:30px solid transparent;
+          border-bottom: 30px solid transparent;
+          @include tab{
+            bottom:0;
+            left: 50%;
+            border-top:20px solid white;
+            border-right:20px solid transparent;
+            border-left: 20px solid transparent;
+            transform:translate(-50%,20%);
+          }
+        }
+      }
+    }
+    .prepare{
+      display: flex;
+      justify-content: space-between;
+      @include tab{
+        flex-direction: column;
+        align-items: center;
+      }
+      .brings,.pay{
+        border: 2px solid $black;
+        border-radius: 5px;
+        background: white;
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 30px;
+      }
+      .brings{
+        margin-right: 30px;
+        @include tab{
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+// 自分の求めているものに耳を傾けてみませんか
+#action{
+  position: relative;
+  height: 800px;
+  @include sp{
+    height: 450px;
+  }
+  .larger{
+    padding-top: 400px;
+    padding-bottom: 100px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    @include sp{
+      padding-top: 200px;
+      padding-bottom: 50px;
+    }
+  }
+  img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.85;
+    object-fit: cover;
+    object-position: center;
+    height: 800px;
+    @include sp{
+      height: 450px;
+    }
+  }
+  .black-window{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:-1;
+    background: black;
+    opacity:0.07;
+    width: 100vw;
+    height: 800px;
+    @include sp{
+      height: 450px;
+    }
+  }
+}
+
+// フッター
+footer{
+  background: $pink;
+  .link{
+    display: flex;
+    justify-content: center;
+    // outline: 2px solid blue;
+    padding: 20px 0;
+    a{
+      &:hover{
+        opacity:0.8;
+      }
+      .bi-instagram{
+        font-size: 40px;
+        line-height: 1;
+      }
+      img{
+        width: 40px;
+        margin-left: 30px;
+      }
+    }
+  }
+  .policy{
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 75px;
+      display: block;
+      margin-right: 20px;
+      @include sp{
+        width: 60px;
+      }
+    }
+  }
+}
+
+
+
+
+// reserveform.html 体験予約フォーム
+.reserve-page{
+  h2{
+    padding-top: 20px;
+  }
+  .form-header{
+    margin-top: 40px;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    border-top:1px solid $black;
+    border-bottom: 1px solid $black;
+    img{
+      width: 80px;
+    }
+  }
+  #reserve-form{
+    @include sp{
+      padding: 0 5px;
+    }
+    ul{
+      padding: 10px 30px;
+      text-align: start;
+      border: 1px solid $black;
+      border-radius: 5px;
+    }
+    .privacy-purpose{
+      padding: 10px;
+      height: 300px;
+      overflow:scroll;
+      border: 1px solid $black;
+      border-radius:2px;
+      .smallest{
+        text-align: start;
+        padding-left: 20px;
+      }
+    } 
+    .check{
+      display: block;
+      width: 250px;
+      height: 50px;
+      background: $black;
+      color:white;
+      line-height: 50px;
+      text-align: center;
+      margin: 30px auto;
+      text-decoration: none;
+      @include tab{
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+      }
+      @include sp{
+        margin: 10px auto 0;
+        width: 160px;
+        height: 32px;
+        line-height: 32px;
+      }
+      &:hover{
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+  .reserve-footer{
+    padding-top: 30px;
+    p{
+      border-top: 1px solid $black;
+    }
+  }
+}
